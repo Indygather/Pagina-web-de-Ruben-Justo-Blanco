@@ -1,0 +1,35 @@
+h3 {
+    padding: 1rem;
+    color: #fff;
+}
+
+.card-body {
+    color: #fff;
+}
+
+.detalles {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 700;
+    padding: 0.5rem 0 0 1rem;
+}
+
+.valor {
+    padding: 0 0 0 1rem;
+}
+
+.combo {
+    max-width: 300px;
+}
+
+.imagenes {
+    margin: 1rem;
+}
+
+.botones {
+    margin-bottom: 1rem;
+}

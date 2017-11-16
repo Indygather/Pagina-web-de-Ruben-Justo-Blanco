@@ -1,0 +1,52 @@
+h3 {
+    margin: 1rem;
+    color: #fff;
+}
+
+.fa {
+    color: #fff;
+}
+
+.fa .fa-plus {
+    margin-top: 10px;
+}
+
+.jumbotron {
+    background: #505050;
+}
+
+.carousel label {
+    font-size: 0.7rem;
+}
+
+.inputUrl {
+    margin: 0 0 1rem 0;
+}
+
+.inputUrl .btn {
+    margin: 0 0 0 1rem;
+}
+
+form label {
+    margin-top: 20px;
+    margin-right: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.error-validacion {
+    color: red;
+    font-weight: bold;
+}
+
+.botones {
+    margin-bottom: 1rem;
+}
+
+.volver {
+    margin-left: 1rem;
+}

@@ -1,0 +1,25 @@
+<h3>
+    Listado de productos
+</h3>
+
+<div *ngIf="loading" class="loading">
+    <i class="fa fa-spinner fa-pulse fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="!loading" class="row">
+    <li *ngFor="let producto of productos" class="col-lg-3">
+        <div *ngIf="productos" class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{producto.NAME}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{producto.PRICE | number}} €</h6>
+                <p class="card-text">{{producto.DESCRIPTION}}</p>
+                <img *ngIf="producto.URL_IMAGE" src="{{producto.URL_IMAGE}}" class="img-thumbnail">
+                <div class="float-bottom">
+                    <button type="button" [routerLink]="['/product-detail',producto.ID_PRODUCT]" class="btn btn-success btn-sm">Detalles</button>
+                </div>
+            </div>
+        </div>
+    </li>
+</div>
+<button *ngIf="!loading" type="button" [routerLink]="['/productos',currentUser.username]" class="btn btn-primary btn-mis-productos">Mis productos</button>

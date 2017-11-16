@@ -1,0 +1,58 @@
+h3 {
+    color: #fff;
+}
+
+li {
+    list-style-type: none;
+}
+
+.card {
+    margin: 1rem 0 1rem 0;
+}
+
+.card-body {
+    margin: 10px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-body img {
+    max-height: 150px;
+}
+
+.card-body .card-text {
+    flex: 0.8 1 auto;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    max-height: 100px;
+}
+
+.float-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.btn {
+    margin: 5px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+    font-size: 7rem;
+    color: #e42d40;
+}
+
+.padding2rem {
+    padding: 2rem;
+}

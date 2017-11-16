@@ -1,0 +1,210 @@
+/*
+    Paleta de colores;
+    principal:#f0ddaa
+    secundario:#e47c5d
+    color 3:#e42d40
+    color 4: #5ebdb2
+    texto: #142b3b
+*/
+
+html {
+    font-size: 15px;
+}
+
+#cv-body {
+    font-family: 'Roboto', sans-serif;
+    color: #f0ddaa;
+}
+
+nav {
+    background: #142b3b;
+    font-weight: bold;
+    border-bottom: solid 2px #f0ddaa;
+}
+
+.navbar span {
+    color: #f0ddaa;
+}
+
+.navbar-toggler .fa {
+    color: #f0ddaa;
+}
+
+.navbar-nav .fa {
+    color: #f0ddaa;
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+}
+
+.nav-item span {
+    color: #f0ddaa;
+}
+
+.navbar-nav .nav-item:hover {
+    transition: all .8s ease;
+    background: #e42d40;
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+
+nav .fa {
+    margin-right: 0.5rem;
+}
+
+.card {
+    background: #fff;
+    color: #142b3b;
+}
+
+.cv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #142b3b;
+    padding: 1rem;
+    border-bottom: solid 2px #f0ddaa;
+}
+
+.cv .foto {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0rem 0rem 1rem 0rem;
+}
+
+.cv .nombre-apellidos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.cv h3 {
+    color: #e42d40;
+}
+
+.cv .resumen {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.resumen label {
+    text-align: right;
+    font-weight: bold;
+}
+
+.resumen .fa {
+    margin-right: 0.5rem;
+}
+
+.sobremi {
+    text-align: center;
+    padding: 1rem;
+}
+
+.trayectoria {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: solid 2px #ffeead;
+}
+
+.trayectoria .card {
+    box-shadow: 5px 5px lightgray;
+    margin: 0.7rem 0 0 0;
+}
+
+.trayectoria .card-img-top {
+    width: 40%;
+    margin: auto;
+    padding: 1rem;
+    transition: all 1s ease;
+}
+
+.trayectoria .card-img-top:hover {
+    transform: rotateY(360deg);
+}
+
+.ir-arriba {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    z-index: 99999;
+    color: #e42d40;
+    margin-right: auto;
+    transition: all .5s ease;
+}
+
+.ir-arriba .fa-arrow-circle-up:hover {
+    color: #5ebdb2;
+}
+
+.educacion {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: solid 2px #ffeead;
+}
+
+.educacion .card {
+    box-shadow: 5px 5px lightgray;
+    margin: 0.7rem 0 0 0;
+}
+
+.educacion .card-img-top {
+    transition: all 1s ease;
+}
+
+.educacion .card-img-top:hover {
+    transform: rotateY(360deg);
+}
+
+.fic-image {
+    max-width: 300px;
+    padding: 1rem;
+}
+
+.rosa-chacel-image {
+    max-width: 150px;
+    padding: 1rem;
+}
+
+.conocimientos {
+    text-align: center;
+}
+
+.conocimientos .card {
+    box-shadow: none;
+    background: #142b3b;
+    font-weight: bold;
+    border: none;
+}
+
+.conocimientos .card-body {
+    background: url("../../../images/conocimientos.jpg") no-repeat center top;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.conocimientos .card-text .badge {
+    font-size: 1rem;
+    margin: 0.5rem;
+}
+
+.blanco {
+    color: #fff;
+}
+
+.carmesi {
+    color: #e42d40
+}
+
+.pie-pagina {
+    font-weight: bold;
+    font-size: 0.8rem;
+    background: #142b3b;
+    color: #f0ddaa;
+    padding: 0.6rem;
+    text-align: center;
+}

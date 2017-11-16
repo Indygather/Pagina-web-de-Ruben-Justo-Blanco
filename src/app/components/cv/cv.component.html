@@ -1,0 +1,346 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="cv-body">
+    <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars" aria-hidden="true"></i><span>Menú</span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="goTo('sobre-mi')">
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span>Sobre mi</span>
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="goTo('trayectoria')">
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                        <span>Trayectoria profesional</span>
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="goTo('educacion')">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span>Educación</span>
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="goTo('conocimientos')">
+                        <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                        <span>Conocimientos de programación</span>
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/login']">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        <span>WebApp</span>
+                        <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="cv">
+        <div class="foto col-sm-12 wow bounceIn" data-wow-duration="1s" data-wow-delay=".1.5s">
+            <img src="https://dl.dropboxusercontent.com/s/s0sv1lqfvybce44/rjusto.JPG?dl=0" class="img-thumbnail" alt="Ruben Justo Blanco">
+        </div>
+        <div class="nombre-apellidos col-md-12 col-lg-6 py-3 wow bounceIn" data-wow-duration="1s" data-wow-delay=".7s">
+            <h1>Rubén Justo Blanco</h1>
+            <h3>Analista Programador</h3>
+        </div>
+        <div class="resumen col-md-12 col-lg-6 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">
+            <div>
+                <label>
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                   Nombre:
+              </label>
+                <span>
+                Rubén Justo Blanco
+              </span>
+            </div>
+            <div>
+                <label>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                Fecha de nacimiento:
+              </label>
+                <span>
+                22 de Diciembre de 1982
+              </span>
+            </div>
+            <div>
+                <label>
+                  <i class="fa fa-map-signs" aria-hidden="true"></i>
+                  Direccion:
+              </label>
+                <span>
+                Culleredo, La Coruña, España
+              </span>
+            </div>
+            <div>
+                <label>
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  Nº de contacto:
+              </label>
+                <span>
+                +34 660 994 706
+              </span>
+            </div>
+            <div>
+                <label>
+                  <i class="fa fa-at" aria-hidden="true"></i>
+                  Email:
+                </label>
+                <span>
+                  rubenjustoblanco@gmail.com
+                </span>
+            </div>
+        </div>
+    </header>
+    <a class="nav-link ir-arriba" (click)="goTo('cv-body')">
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+    </a>
+    <div class="cv">
+        <div class="sobremi col-sm-12 py-3 wow bounceIn" data-wow-delay=".1.5s" id="sobre-mi">
+            <h3><i class="fa fa-address-card" aria-hidden="true"></i> Sobre mi</h3>
+            <article>
+                <p>Mi nombre es Rubén Justo Blanco, y llevo 7 años como profesional en diversas consultoras TIC, en la mayoría de ellas trabajando para el mismo cliente, Inditex. Pasé por diversos departamentos de desarrollo, como logística-comercial, RRHH,
+                    financiero y e-comerce. <br/> Estoy en constante movimiento, persiguiendo mi afán de aprender nuevas tecnologías, y ampliar mi experiencia en diversos ámbitos empresariales. Además de trabajar en proyectos de Inditex, también colaboré
+                    en un proyecto del ayuntamiento de Santiago, para el control de emisión de gases invernadero. <br/> Destacar también mi paso por el sector bancario, habiendo colaborado en proyectos de Abanca, de ámbito jurídico-financiero y pólizas
+                    de seguros.</p>
+                <p>Como trabajador me gusta compartir conocimientos con mis compañeros y fomentar siempre que pueda un buen ambiente de trabajo. Mi metodología favorita es SCRUM, ya que facilita el conocimiento de la totalidad del estado del proyecto por
+                    parte de todos los colaboradores del equipo SCRUM y hay un constante feedback por parte del cliente final, lo que reduce riesgos y mejora la calidad final del producto, ya que se adaptará al 100% a las exigencias del cliente.</p>
+                <p>En cuanto al ámbito personal, me apasionan las nuevas tecnologías, el mundo de los videojuegos, la natación, el surf y el pádel.</p>
+            </article>
+        </div>
+        <div class="trayectoria col-sm-12 py-3" id="trayectoria">
+            <h3><i class="fa fa-line-chart" aria-hidden="true"></i> Trayectoria profesional</h3>
+            <article>
+                <div class="card col-sm-12 wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="https://www.redegal.com/es/" target="_blank">
+                        <img class="card-img-top" src="./images/redegal.jpg" alt="Redegal">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Analista Programador</h4>
+                        <h6 class="card-title">La Coruña - Mayo 2017 - Actualidad</h6>
+                        <p class="card-text">Cliente Inditex (desplazado en cliente, Arteixo). Desarrollo de un aplicativo en Node JS e ImageMagic para la conversión de imágenes a diferentes formatos y resoluciones. Se desarrolló para este aplicativo una suite de pruebas
+                            completa con un detallado log de toda su ejecución para que las pruebas de regresión o las pruebas previas a los pases a explotación sean menos arriesgados. Análisis técnico y funcional de una nueva aplicación a desarrollar
+                            cuyo objetivo es explotar la información de una serie de recursos API para su posterior almacenamiento y explotación en una base de datos NoSQL(CouchDB), evitando saturar la base de datos de explotación en DB2.
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-sm-12 wow bounceInRight" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="http://bahiasoftware.es/home" target="_blank">
+                        <img class="card-img-top" src="/images/bahiasoftware.jpg" alt="Bahia Software">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Analista Programador</h4>
+                        <h6 class="card-title">La Coruña - Septiembre 2015 - Mayo 2017</h6>
+                        <p class="card-text">Cliente Abanca. Análisis de nuevas funcionalidades, mantenimiento de la aplicación y corrección de incidencias, desarrollo de nuevas funcionalidades. Proyecto de ámbito jurídico-financiero para Abanca, Framework Metrópolis. Se
+                            empleó BPMN, mantenido por un equipo de desarrollo distinto, encargado de especificar todos y cada uno de los distintos flujos de los procesos jurídicos. Metodología SCRUM con CMMI5. Desarrollo de aplicaciones con nueva arquitectura
+                            MORPHE de Abanca, basada en Angular JS, Angular Material y Bootstrap.
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-sm-12 wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="https://www.indracompany.com/" target="_blank">
+                        <img class="card-img-top" src="/images/indra.jpg" alt="Indra">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Analista Programador</h4>
+                        <h6 class="card-title">La Coruña - Marzo 2015 - Septiembre 2015</h6>
+                        <p class="card-text">Funciones de análisis, como elaboración de documentación para cliente, como son los documentos de requisitos, documentos funcionales, análisis de BD, etc... Configuración inicial de los proyectos a partir de arquetipos Maven. Creación
+                            de la infraestructura inicial de la aplicación.Proyectos de ámbito logístico-comercial y RRHH.
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-sm-12 wow bounceInRight" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="http://bahiasoftware.es/home" target="_blank">
+                        <img class="card-img-top" src="/images/bahiasoftware.jpg" alt="Bahia Software">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Analista Programador</h4>
+                        <h6 class="card-title">Santiago de Compostela - Noviembre 2014 - Marzo 2015</h6>
+                        <p class="card-text">Cliente Ayuntamiento de Santiago de Compostela. Encargado de las tareas de análisis y de la coordinación de un equipo de desarrollo de dos personas. Proyecto de ámbito medio ambiental (Medición de la Huella de carbono), con tecnologías
+                            Bootstrap, tiles, Angular JS, Thymeleaf, Mongo DB, Mercurial…
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-sm-12 wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="http://www.seidor.es/content/seidorweb/es.html" target="_blank">
+                        <img class="card-img-top" src="/images/seidor.jpg" alt="Bahia Software">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Programador Senior</h4>
+                        <h6 class="card-title">La Coruña - Marzo 2012 - Noviembre 2014</h6>
+                        <p class="card-text">Cliente Inditex. Programación en J2EE con Spring, Hibernate, Maven, DB2 y SWT. Desarrollo de nuevas funcionalidades y corrección de incidencias para un proyecto de logística-comercial para la gestión de devoluciones.
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-sm-12 wow bounceInRight" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="http://www.tecnocom.es/" target="_blank">
+                        <img class="card-img-top" src="/images/tecnocom.jpg" alt="Bahia Software">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Programador Junior</h4>
+                        <h6 class="card-title">La Coruña - Marzo 2011 - Marzo 2012</h6>
+                        <p class="card-text">Cliente Inditex. proyectos de ámbito logístico-comercial y de ámbito financiero. Las principales tecnologías empleadas para los proyectos en los que participé fueron: J2EE, Spring, Hibernate, SQL, DB2, JSP, JS, JSF, SWT, JQUERY.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="educacion col-sm-12 py-3" id="educacion">
+            <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Educación</h3>
+            <article>
+                <div class="card col-sm-12 wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="https://www.fic.udc.es/" target="_blank">
+                        <img class="card-img-top fic-image" src="/images/fic.png" alt="Bahia Software">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Ingeniería técnica en informática de gestión</h4>
+                        <h6 class="card-title">La Coruña - Facultad de Informática de Coruña - 2005 - 2011</h6>
+                        <p class="card-text">Proyecto de fin de carrera basado en J2EE con Spring, Tapestry y MySQL. Aplicación Web para la venta de material de oficina de forma online.
+                        </p>
+                    </div>
+                </div>
+                <div class="card col-sm-12 wow bounceInRight" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <a href="http://ies.rosachacel.madrid.educa.madrid.org/" target="_blank">
+                        <img class="card-img-top rosa-chacel-image" src="/images/rosa-chacel.png" alt="Bahia Software">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Ciclo Superior en Administración de sistemas informaticos (ASI)</h4>
+                        <h6 class="card-title">Madrid - IES Rosa Chacel - 2003 - 2005</h6>
+                        <p class="card-text">Prácticas de fin de ciclo realizadas en BULL ESPAÑA S.A. Finalizado el ciclo como primero de promoción 2003-2005.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="conocimientos col-sm-12 py-3" id="conocimientos">
+            <h3><i class="fa fa-keyboard-o" aria-hidden="true"></i> Aptitudes</h3>
+            <article>
+                <div class="card col-sm-12 wow bounceInRight" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                    <div class="card-body">
+                        <h4 class="card-title blanco">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Leyenda
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Avanzado</span>
+                            <span class="badge badge-pill badge-warning">Medio</span>
+                            <span class="badge badge-pill badge-danger">Básico</span>
+                            <span class="badge badge-pill badge-dark">N/A</span>
+                        </p>
+                        <h4 class="card-title blanco">
+                            <i class="fa fa-cubes" aria-hidden="true"></i> Back-End
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Java</span>
+                            <span class="badge badge-pill badge-success">J2EE</span>
+                            <span class="badge badge-pill badge-danger">PHP</span>
+                            <span class="badge badge-pill badge-success">Spring</span>
+                            <span class="badge badge-pill badge-success">Hibernate</span>
+                            <span class="badge badge-pill badge-success">SOAP WS</span>
+                            <span class="badge badge-pill badge-success">REST WS</span>
+                            <span class="badge badge-pill badge-dark">JSON</span>
+                            <span class="badge badge-pill badge-dark">XML</span>
+                        </p>
+
+                        <h4 class="card-title blanco">
+                            <i class="fa fa-html5" aria-hidden="true"></i> Front-End
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Angular</span>
+                            <span class="badge badge-pill badge-warning">Angular Material</span>
+                            <span class="badge badge-pill badge-success">Bootstrap</span>
+                            <span class="badge badge-pill badge-success">HTML5</span>
+                            <span class="badge badge-pill badge-success">CSS3</span>
+                            <span class="badge badge-pill badge-success">Tiles</span>
+                            <span class="badge badge-pill badge-success">Flex Box</span>
+                            <span class="badge badge-pill badge-success">Java Script</span>
+                            <span class="badge badge-pill badge-warning">jQuery</span>
+                            <span class="badge badge-pill badge-success">JSP</span>
+                            <span class="badge badge-pill badge-warning">JSF</span>
+                            <span class="badge badge-pill badge-danger">BackBone</span>
+                            <span class="badge badge-pill badge-warning">Tapestry5</span>
+                        </p>
+
+                        <h4 class="card-title blanco">
+                            <i class="fa fa-database" aria-hidden="true"></i> Bases de datos
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">DB2</span>
+                            <span class="badge badge-pill badge-success">MySQL</span>
+                            <span class="badge badge-pill badge-warning">MongoDB</span>
+                            <span class="badge badge-pill badge-success">JDBC</span>
+                            <span class="badge badge-pill badge-warning">JPA</span>
+                        </p>
+                        <h4 class="card-title blanco">
+                            <i class="fa fa-bolt" aria-hidden="true"></i> Metodologías ágiles
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">SCRUM</span>
+                        </p>
+                        <h4 class="card-title blanco">
+                            <i class="fa fa-desktop" aria-hidden="true"></i> IDEs - Editores
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Eclipse</span>
+                            <span class="badge badge-pill badge-warning">NetBeans</span>
+                            <span class="badge badge-pill badge-success">Visual Studio Code</span>
+                            <span class="badge badge-pill badge-warning">Sublime Text</span>
+                        </p>
+
+                        <h4 class="card-title carmesi">
+                            <i class="fa fa-cogs" aria-hidden="true"></i> Herramientas
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Squirrel</span>
+                            <span class="badge badge-pill badge-success">SOAP-UI</span>
+                            <span class="badge badge-pill badge-success">Tortoise-SVN</span>
+                            <span class="badge badge-pill badge-success">PostMan</span>
+                            <span class="badge badge-pill badge-warning">WAMP</span>
+                            <span class="badge badge-pill badge-warning">FileZilla</span>
+                        </p>
+
+                        <h4 class="card-title carmesi">
+                            <i class="fa fa-window-restore" aria-hidden="true"></i> Sistemas Operativos - Ofimática
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Windows</span>
+                            <span class="badge badge-pill badge-success">MS Office</span>
+                            <span class="badge badge-pill badge-warning">Linux</span>
+                            <span class="badge badge-pill badge-warning">Mac</span>
+                        </p>
+
+                        <h4 class="card-title carmesi">
+                            <i class="fa fa-sitemap" aria-hidden="true"></i> Control de versiones - dependencias
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Maven</span>
+                            <span class="badge badge-pill badge-success">SVN</span>
+                            <span class="badge badge-pill badge-danger">GIT</span>
+                            <span class="badge badge-pill badge-danger">GULP</span>
+                            <span class="badge badge-pill badge-success">NPM</span>
+                        </p>
+
+                        <h4 class="card-title carmesi">
+                            <i class="fa fa-language" aria-hidden="true"></i> Idiomas
+                        </h4>
+                        <p class="card-text">
+                            <span class="badge badge-pill badge-success">Español(nativo)</span>
+                            <span class="badge badge-pill badge-success">Gallego</span>
+                            <span class="badge badge-pill badge-success">Inglés-Reading</span>
+                            <span class="badge badge-pill badge-success">Inglés-Writing</span>
+                            <span class="badge badge-pill badge-warning">Inglés-Listening</span>
+                            <span class="badge badge-pill badge-warning">Inglés-Speaking</span>
+                        </p>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+<footer class="pie-pagina">
+    2017 © Rubén Justo Blanco Todos los derechos reservados
+</footer>

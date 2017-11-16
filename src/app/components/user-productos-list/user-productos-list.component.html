@@ -1,0 +1,52 @@
+<h3 class="padding2rem">
+    Tu listado de productos anunciados
+</h3>
+
+<div *ngIf="loading" class="loading">
+    <i class="fa fa-spinner fa-pulse fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="!loading" class="row">
+    <li *ngFor="let producto of productos" class="col-lg-3">
+        <div *ngIf="productos" class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{producto.NAME}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{producto.PRICE | number}} €</h6>
+                <p class="card-text">{{producto.DESCRIPTION}}</p>
+                <img *ngIf="producto.URL_IMAGE" src="{{producto.URL_IMAGE}}" class="img-thumbnail">
+                <div class="float-bottom">
+                    <button type="button" [routerLink]="['/product-detail',producto.ID_PRODUCT]" class="btn btn-success btn-sm">Detalles</button>
+                    <button type="button" [routerLink]="['/edit-producto',producto.ID_PRODUCT]" class="btn btn-warning btn-sm">Editar</button>
+
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#borrarModal">
+                        Borrar
+                    </button>
+
+                    <!-- Modal de confirmacion de borrado-->
+                    <div class="modal fade" id="borrarModal" tabindex="-1" role="dialog" aria-labelledby="borrarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="borrarModalLabel">Confirmación de borrado de producto</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                                </div>
+                                <div class="modal-body">
+                                    El producto será eliminado, ¿desea continuar?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" (click)="deleteProduct(producto)" data-dismiss="modal" class="btn btn-danger btn-sm">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</div>
+<button *ngIf="!loading" type="button" [routerLink]="['/add-producto']" class="btn btn-primary mx-2 my-3">Nuevo producto</button>
+<button *ngIf="!loading" type="button" [routerLink]="['/productos']" class="btn btn-primary mx-2 my-3">Volver</button>
