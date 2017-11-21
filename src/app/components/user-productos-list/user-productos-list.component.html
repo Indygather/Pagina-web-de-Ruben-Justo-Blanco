@@ -1,4 +1,5 @@
-<h3 class="padding2rem">
+<app-menu></app-menu>
+<h3 class="margen-sup padding2rem">
     Tu listado de productos anunciados
 </h3>
 
@@ -17,7 +18,7 @@
                 <img *ngIf="producto.URL_IMAGE" src="{{producto.URL_IMAGE}}" class="img-thumbnail">
                 <div class="float-bottom">
                     <button type="button" [routerLink]="['/product-detail',producto.ID_PRODUCT]" class="btn btn-success btn-sm">Detalles</button>
-                    <button type="button" [routerLink]="['/edit-producto',producto.ID_PRODUCT]" class="btn btn-warning btn-sm">Editar</button>
+                    <button type="button" [routerLink]="['/edit-product',producto.ID_PRODUCT]" class="btn btn-warning btn-sm">Editar</button>
 
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#borrarModal">
                         Borrar
@@ -48,5 +49,5 @@
         </div>
     </li>
 </div>
-<button *ngIf="!loading" type="button" [routerLink]="['/add-producto']" class="btn btn-primary mx-2 my-3">Nuevo producto</button>
-<button *ngIf="!loading" type="button" [routerLink]="['/productos']" class="btn btn-primary mx-2 my-3">Volver</button>
+<button *ngIf="!loading" type="button" [routerLink]="['/add-product']" class="btn btn-success boton">Nuevo producto</button>
+<button *ngIf="!loading" type="button" [routerLink]="['/products']" class="btn btn-primary boton">Volver</button>

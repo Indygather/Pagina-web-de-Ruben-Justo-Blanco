@@ -24,7 +24,7 @@ export class UserProductListComponent implements OnInit {
 
   deleteProduct(producto:Product){
     this.loading = true;
-    this._productoService.deleteProducto(producto).subscribe(
+    this._productoService.deleteProduct(producto).subscribe(
       result => {
         this.getUserProductList(this.currentUser.idUser);
         this.loading = false;
@@ -36,7 +36,7 @@ export class UserProductListComponent implements OnInit {
   }
 
   getUserProductList(userId:number){
-    this._productoService.getUserProductos(userId).subscribe(
+    this._productoService.getUserProducts(userId).subscribe(
       result => {
         this.loading = false;
           this.productos = result.data;

@@ -15,6 +15,31 @@ h3 {
     background: #505050;
 }
 
+.imagenes {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.imagen {
+    align-self: center;
+    min-width: 65%;
+    max-width: 65%;
+}
+
+.imagen-badge {
+    align-self: center;
+    margin: 0.5rem;
+}
+
+.imagen-delete {
+    align-self: center;
+    min-width: 20%;
+    max-width: 30%;
+    margin: 0.5rem !important;
+}
+
 .carousel label {
     font-size: 0.7rem;
 }

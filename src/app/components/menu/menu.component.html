@@ -1,0 +1,40 @@
+<nav class="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars" aria-hidden="true"></i><span>Menú</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul *ngIf="currentUser" class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="[ '/products'] "> Buscador <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="[ '/products',currentUser.username] ">Mis productos <span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+                <button type="button" (click)="logout()" class="btn btn-warning register-btn mx-3">Logout</button>
+            </li>
+        </ul>
+        <div class="col-12 d-flex flex-column align-items-center">
+            <form *ngIf="!currentUser" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" class="col-sm-12 col-lg-6" novalidate>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                    <label for="username" class="labelLogin">Username</label>
+                    <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+                    <div *ngIf="f.submitted && !username.valid" class="labelLoginError">Username is required</div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                    <label for="password" class="labelLogin">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                    <div *ngIf="f.submitted && !password.valid" class="labelLoginError">Password is required</div>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-success">Login</button>
+                    <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw"></i>
+                </div>
+                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                <div class="labelLogin">¿Eres nuevo? Registrate aquí...</div>
+                <button type="button" [routerLink]="['/register']" class="btn btn-primary register-btn">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</nav>

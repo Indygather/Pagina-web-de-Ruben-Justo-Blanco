@@ -57,7 +57,7 @@ export class ProductoEditComponent implements OnInit {
   }
 
   onSubmit(){
-    this._productoService.updateProducto(this.producto).subscribe(
+    this._productoService.updateProduct(this.producto).subscribe(
       response => {
         if(response.code == 200){
           this.navigateToProductList();
@@ -99,7 +99,7 @@ export class ProductoEditComponent implements OnInit {
   }
 
   navigateToProductList(){
-    this._router.navigate(['productos'])
+    this._router.navigate(['products/' + this.currentUser.username]);
   }
 
 }

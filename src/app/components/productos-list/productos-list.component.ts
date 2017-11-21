@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
+import { AuthenticationService } from '../../auth/authentication.service';
 
 @Component({
   selector: 'app-productos-list',
@@ -13,14 +14,15 @@ export class ProductosListComponent implements OnInit {
   loading = true;
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  constructor(private _productoService: ProductService) { }
+  constructor(private _productoService: ProductService,
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.getProductsList();
   }
 
   getProductsList(){
-    this._productoService.getProductos().subscribe(
+    this._productoService.getProducts().subscribe(
       result => {
         this.loading = false;
           this.productos = result.data;

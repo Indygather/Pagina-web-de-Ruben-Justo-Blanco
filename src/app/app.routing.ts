@@ -13,16 +13,15 @@ import { ProductoEditComponent } from './components/producto-edit/producto-edit.
 import { UserProductListComponent } from './components/user-productos-list/user-productos-list.component';
 
 export const paths = [
-    {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: '', component: CvComponent},
     {path: 'cv', component: CvComponent},
-    {path: 'add-producto', component: ProductoAddComponent, canActivate: [AuthGuard]},
-    {path: 'edit-producto/:id', component: ProductoEditComponent, canActivate: [AuthGuard]},
-    {path: 'productos', component: ProductosListComponent},
-    {path: 'productos/:userId', component: UserProductListComponent},
+    {path: 'add-product', component: ProductoAddComponent, canActivate: [AuthGuard]},
+    {path: 'edit-product/:id', component: ProductoEditComponent, canActivate: [AuthGuard]},
+    {path: 'products', component: ProductosListComponent},
+    {path: 'products/:userId', component: UserProductListComponent, canActivate: [AuthGuard]},
     {path: 'product-detail/:id', component: ProductoDetailComponent},
-    {path: '**', component: LoginComponent}
+    {path: '**', component: ProductosListComponent}
     ];
     
 const appRoutes: Routes = paths;

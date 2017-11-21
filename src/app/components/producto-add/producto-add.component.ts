@@ -34,12 +34,12 @@ export class ProductoAddComponent implements OnInit {
    }
   
   ngOnInit() {
-    this._productoService.getProductos().subscribe(p => this.productos = p.data);
+    this._productoService.getProducts().subscribe(p => this.productos = p.data);
     this._productoService.getCategories().subscribe(p => this.categorias = p.data);
   }
 
   onSubmit(){
-    this._productoService.addProducto(this.producto).subscribe(
+    this._productoService.addProduct(this.producto).subscribe(
       response => {
         if(response.code == 200){
           this.productos.push(this.producto);
@@ -55,6 +55,9 @@ export class ProductoAddComponent implements OnInit {
   }
 
   addProductImage(){
+    if(this.producto.IMAGES.length == 0){
+      this.imagenPrincipal = true;
+    }
     if(this.imagenPrincipal){
       this.productImage.IMAGEN_PRINCIPAL = '1';
       if (this.producto.IMAGES && this.producto.IMAGES.length > 0) {
@@ -68,7 +71,7 @@ export class ProductoAddComponent implements OnInit {
     this.imagenPrincipal = false;
   }
 
-  deleteProductImage(index:number){  
+  deleteProductImage(index:number){
     this.producto.IMAGES.splice(index,1);
     let hayImagenPrincipal = false;
     for (let image of this.producto.IMAGES) {
@@ -82,7 +85,7 @@ export class ProductoAddComponent implements OnInit {
   }
 
   navigateUserToProductList(){
-    this._router.navigate(['productos/' + this.currentUser.username]);
+    this._router.navigate(['products/' + this.currentUser.username]);
   }
 
 }

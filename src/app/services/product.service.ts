@@ -17,7 +17,7 @@ export class ProductService {
         private authenticationService: AuthenticationService) {
     }
  
-    getProductos() {
+    getProducts() {
         return this.http.get(this.url+'products')
             .map((response: Response) => response.json());
     }
@@ -25,25 +25,17 @@ export class ProductService {
         return this.http.get(this.url+'categories')
             .map((response: Response) => response.json());
     }
-    getUserProductos(userId:number) {
+    getUserProducts(userId:number) {
         return this.http.get(this.url+'user-products/'+userId)
             .map((response: Response) => response.json());
     }
 
     getProductDetail(id:number) {
-        // add authorization header with jwt token
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        let headers = new Headers({ 
-            'User': currentUser.username,
-            'Authorization': currentUser.token 
-        });
-        let options = new RequestOptions({ headers: headers });
- 
-        return this.http.get(this.url+'product'+'/'+id, options)
+        return this.http.get(this.url+'product'+'/'+id)
             .map((response: Response) => response.json());
     }
 
-    addProducto(producto: Product) {
+    addProduct(producto: Product) {
         // add authorization header with jwt token
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -58,26 +50,26 @@ export class ProductService {
             .map(res => res.json());
     }
 
-    updateProducto(producto: Product) {
+    updateProduct(product: Product) {
         // add authorization header with jwt token
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         
-        let json = JSON.stringify(producto);
+        let json = JSON.stringify(product);
         let params = 'json='+json;
         let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',
         'User': currentUser.username,
         'Authorization': currentUser.token });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.url+'update-product'+'/'+producto.ID_PRODUCT,params, options)
+        return this.http.post(this.url+'update-product'+'/'+product.ID_PRODUCT,params, options)
             .map(res => res.json());
     }
 
-    deleteProducto(producto: Product){
+    deleteProduct(product: Product){
         // add authorization header with jwt token
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-        let json = JSON.stringify(producto);
+        let json = JSON.stringify(product);
         let params = 'json='+json;
         let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded',
         'User': currentUser.username,

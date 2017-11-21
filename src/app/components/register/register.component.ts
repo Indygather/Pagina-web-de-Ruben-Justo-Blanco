@@ -33,14 +33,13 @@ export class RegisterComponent implements OnInit {
                     .subscribe(result => {
                         if (result === true) {
                             // login successful
-                            this.router.navigate(['productos']);
+                            this.router.navigate(['products']);
                         } else {
                             // login failed
                             this.error = 'Username or password is incorrect';
                             this.loading = false;
                         }
                     });
-                    this.router.navigate(['productos']);
                 } else {
                     // register failed
                     this.error = response.message;
