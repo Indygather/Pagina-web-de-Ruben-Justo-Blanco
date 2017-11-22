@@ -42,6 +42,7 @@ export class ProductoEditComponent implements OnInit {
               if(this.producto.IMAGES == null){
                 this.producto.IMAGES = [];
               }
+              this.loading = false;
             }else{
               this._router.navigate(['product-list']);
             }

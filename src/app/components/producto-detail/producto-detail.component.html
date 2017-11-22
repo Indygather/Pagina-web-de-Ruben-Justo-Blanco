@@ -9,21 +9,30 @@
 </div>
 
 <div *ngIf="!loading" class="detalles">
-    <label>Nombre:</label>
-    <div class="valor">{{producto.NAME}}</div>
-    <label>Descripción:</label>
-    <div class="valor">{{producto.DESCRIPTION}}</div>
-    <label>Precio:</label>
-    <div class="valor">{{producto.PRICE | number}} €</div>
-
-    <label>Categoría</label>
-    <div class="valor combo">
-        <select [disabled]="true" class="form-control" name="categoria" #categoria="ngModel" [(ngModel)]="producto.ID_PRODUCT_CATEGORY">
-            <option *ngFor="let categoria of categorias" value={{categoria.ID_PRODUCT_CATEGORY}}>{{categoria.NAME}}</option>
-        </select>
+    <div class="info-producto">
+        <div class="col-sm-12 col-lg-6">
+            <label>Nombre:</label>
+            <div class="valor">{{producto.NAME}}</div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <label>Precio:</label>
+            <div class="valor">{{producto.PRICE | number}} €</div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <label>Categoría</label>
+            <div class="valor combo">
+                <select [disabled]="true" class="form-control" name="categoria" #categoria="ngModel" [(ngModel)]="producto.ID_PRODUCT_CATEGORY">
+                    <option *ngFor="let categoria of categorias" value={{categoria.ID_PRODUCT_CATEGORY}}>{{categoria.NAME}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <label>Descripción:</label>
+            <div class="valor">{{producto.DESCRIPTION}}</div>
+        </div>
     </div>
 
-    <label>Imágenes del producto:</label>
+    <label class="mx-3">Imágenes del producto:</label>
     <div class="imagenes">
         <div class="row">
             <div *ngIf="producto.IMAGES && producto.IMAGES.length > 0" id="carouselExampleControls" class="carousel slide col-12 my-3" data-ride="carousel">

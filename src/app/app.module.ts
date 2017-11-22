@@ -28,6 +28,7 @@ import { ProductoDetailComponent } from './components/producto-detail/producto-d
 import { RegisterComponent } from './components/register/register.component';
 import { UserProductListComponent } from './components/user-productos-list/user-productos-list.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MenuComponent } from './components/menu/menu.component';
     RegisterComponent,
     SpanishCurrencyPipe,
     UserProductListComponent,
-    MenuComponent
+    MenuComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

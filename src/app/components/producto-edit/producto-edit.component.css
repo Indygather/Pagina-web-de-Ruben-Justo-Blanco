@@ -3,16 +3,50 @@ h3 {
     color: #fff;
 }
 
-.fa {
+.fa .fa-plus {
+    margin-top: 10px;
     color: #fff;
 }
 
-.fa .fa-plus {
-    margin-top: 10px;
+.fa .fa-minus {
+    color: #fff;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+    font-size: 7rem;
+    color: #e42d40;
 }
 
 .jumbotron {
     background: #505050;
+}
+
+.imagenes {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.imagen {
+    align-self: center;
+    min-width: 65%;
+    max-width: 65%;
+}
+
+.imagen-badge {
+    align-self: center;
+    margin: 0.5rem;
+}
+
+.imagen-delete {
+    align-self: center;
+    min-width: 20%;
+    max-width: 30%;
+    margin: 0.5rem !important;
 }
 
 .carousel label {

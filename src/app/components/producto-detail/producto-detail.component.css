@@ -3,6 +3,14 @@ h3 {
     color: #fff;
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+    font-size: 7rem;
+    color: #e42d40;
+}
+
 .card-body {
     color: #fff;
 }
@@ -11,6 +19,12 @@ h3 {
     color: #fff;
     display: flex;
     flex-direction: column;
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 label {

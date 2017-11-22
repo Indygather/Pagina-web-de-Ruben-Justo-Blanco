@@ -9,8 +9,8 @@ import { Product } from '../models/product';
 @Injectable()
 export class ProductService {
 
-    url = 'http://rubenjustoblanco.com/martket-backend/v1/index.php/';
-    //url = 'http://localhost/martket-backend/v1/index.php/';
+    //url = 'http://rubenjustoblanco.com/martket-backend/v1/index.php/';
+    url = 'http://localhost/martket-backend/v1/index.php/';
 
     constructor(
         private http: Http,

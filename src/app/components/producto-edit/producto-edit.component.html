@@ -1,12 +1,15 @@
-<app-menu></app-menu>
-
 <h3 class="margen-sup">
     {{titulo}}
 </h3>
 <hr>
 
-<form #formProducto="ngForm" (ngSubmit)="onSubmit();" class="col-12">
-    <label>Nombre</label><span *ngIf="nombre.touched && !nombre.valid" class="badge badge-danger">El campo es obligatorio (Longitud minima 2)</span>
+<div *ngIf="loading" class="loading">
+    <i class="fa fa-spinner fa-pulse fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+</div>
+
+<form *ngIf="!loading" #formProducto="ngForm" (ngSubmit)="onSubmit();" class="col-12">
+    <label>Nombre</label><span *ngIf="nombre.touched && !nombre.valid" class="badge badge-danger">El campo es obligatorio</span>
     <input id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="producto.NAME" class="form-control" maxlength="100" required/>
 
     <label>Descripción</label><span *ngIf="description.touched && !description.valid" class="badge badge-danger">El campo es obligatorio</span>
@@ -17,22 +20,22 @@
 
     <label>Categoría</label><span *ngIf="categoria.touched && !categoria.valid" class="badge badge-danger">El campo categoria es obligatorio</span>
     <select class="form-control" name="categoria" #categoria="ngModel" [(ngModel)]="producto.ID_PRODUCT_CATEGORY" required>
-        <option *ngFor="let categoria of categorias" value={{categoria.ID_PRODUCT_CATEGORY}}>{{categoria.NAME}}</option>
-    </select>
+            <option *ngFor="let categoria of categorias" value={{categoria.ID_PRODUCT_CATEGORY}}>{{categoria.NAME}}</option>
+        </select>
 
     <label>Imágenes del producto</label>
     <div class="row jumbotron inputUrl">
         <span *ngIf="imagen.touched && !imagen.valid" class="badge badge-danger">El formato de la url de imagen no es válido</span>
-        <input type="text" placeholder="URL de la imagen" class="form-control col-10" name="imagen" #imagen="ngModel" [(ngModel)]="productImage.URL_IMAGE" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+        <input type="text" placeholder="URL de la imagen" class="form-control col-9" name="imagen" #imagen="ngModel" [(ngModel)]="productImage.URL_IMAGE" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
         />
         <button type="button" class="btn btn-success" (click)="addProductImage()">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-        </button>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
         <div class="form-check">
             <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="esPrincipal" #esPrincipal="ngModel" [(ngModel)]="imagenPrincipal">
-                Es la imagen principal del producto (Si ya existe una principal, esta dejará de serlo)
-            </label>
+                      <input class="form-check-input" type="checkbox" name="esPrincipal" #esPrincipal="ngModel" [(ngModel)]="imagenPrincipal">
+                      Es la imagen principal del producto (Si ya existe una principal, esta dejará de serlo)
+                </label>
         </div>
 
         <ul class="list-group col-12">
@@ -40,36 +43,23 @@
                 {{imageSrc.URL_IMAGE}}
                 <span *ngIf="imageSrc.IMAGEN_PRINCIPAL === '1'" class="badge badge-success">Principal</span>
                 <span *ngIf="imageSrc.IMAGEN_PRINCIPAL === '0'" class="badge badge-primary">Secundaria</span>
-                <button type="button" class="btn btn-success btn-sm" (click)="deleteProductImage(i)">
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteProductImage(i)">
                             <i class="fa fa-minus" aria-hidden="true"></i>
-                </button>
+                    </button>
             </li>
         </ul>
-
-        <div *ngIf="producto.IMAGES && producto.IMAGES.length > 0" id="carouselExampleControls" class="carousel slide col-12 my-3" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <label>{{producto.IMAGES[0].URL_IMAGE}}</label>
-                    <img class="d-block w-100" src={{producto.IMAGES[0].URL_IMAGE}} alt={{producto.IMAGES[0].URL_IMAGE}}>
-                </div>
-                <div *ngFor="let imageSrc of producto.IMAGES | slice:1" class="carousel-item">
-                    <label>{{imageSrc.URL_IMAGE}}</label>
-                    <img class="d-block w-100" src={{imageSrc.URL_IMAGE}} alt={{imageSrc.URL_IMAGE}}>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        <div class="imagenes col-sm-12 col-lg-4" *ngFor="let imageSrc of producto.IMAGES; let i = index">
+            <span *ngIf="imageSrc.IMAGEN_PRINCIPAL === '1'" class="badge badge-success imagen-badge">Principal</span>
+            <span *ngIf="imageSrc.IMAGEN_PRINCIPAL === '0'" class="badge badge-primary imagen-badge">Secundaria</span>
+            <img class="d-block imagen" src={{imageSrc.URL_IMAGE}} alt={{imageSrc.URL_IMAGE}}>
+            <button type="button" class="btn btn-danger btn-sm imagen-delete" (click)="deleteProductImage(i)">
+                    Eliminar
+                </button>
         </div>
     </div>
 
     <div class="botones">
-        <button type="submit" class="btn btn-warning btn-sm" [disabled]="!formProducto.form.valid">Modificar</button>
-        <button *ngIf="!loading" type="button" [routerLink]="['/products',currentUser.username]" class="btn btn-success btn-sm volver">Volver</button>
+        <button type="submit" class="btn btn-success btn-sm" [disabled]="!formProducto.form.valid">Crear</button>
+        <button type="button" [routerLink]="['/products',currentUser.username]" class="btn btn-primary btn-sm volver">Volver</button>
     </div>
 </form>

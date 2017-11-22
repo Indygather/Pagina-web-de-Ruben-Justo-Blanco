@@ -11,6 +11,7 @@ import { ProductoDetailComponent } from './components/producto-detail/producto-d
 import { ProductoAddComponent } from './components/producto-add/producto-add.component';
 import { ProductoEditComponent } from './components/producto-edit/producto-edit.component';
 import { UserProductListComponent } from './components/user-productos-list/user-productos-list.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 export const paths = [
     {path: 'register', component: RegisterComponent},
@@ -21,7 +22,8 @@ export const paths = [
     {path: 'products', component: ProductosListComponent},
     {path: 'products/:userId', component: UserProductListComponent, canActivate: [AuthGuard]},
     {path: 'product-detail/:id', component: ProductoDetailComponent},
-    {path: '**', component: ProductosListComponent}
+    {path: 'error', component: ErrorPageComponent},
+    {path: '**', component: ErrorPageComponent}
     ];
     
 const appRoutes: Routes = paths;
