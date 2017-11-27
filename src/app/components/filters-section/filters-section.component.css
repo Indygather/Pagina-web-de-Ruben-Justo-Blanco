@@ -1,0 +1,12 @@
+form label {
+    margin-top: 20px;
+    margin-right: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.form-filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

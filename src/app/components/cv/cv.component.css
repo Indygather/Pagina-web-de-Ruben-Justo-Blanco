@@ -84,6 +84,15 @@ nav .fa {
     color: #e42d40;
 }
 
+.boton-cv {
+    max-width: 200px;
+    margin: 1rem;
+}
+
+.fa-cloud-download {
+    margin-right: 0.5rem;
+}
+
 .cv .resumen {
     display: flex;
     flex-direction: column;

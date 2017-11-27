@@ -29,6 +29,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserProductListComponent } from './components/user-productos-list/user-productos-list.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { FiltersSectionComponent } from './components/filters-section/filters-section.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     SpanishCurrencyPipe,
     UserProductListComponent,
     MenuComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    FiltersSectionComponent
   ],
   imports: [
     BrowserModule,

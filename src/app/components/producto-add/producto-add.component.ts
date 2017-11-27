@@ -16,7 +16,6 @@ export class ProductoAddComponent implements OnInit {
   public titulo:string;
   public producto:Product;
   public esPrincipal:boolean;
-  public variableCambiada = new EventEmitter();
   public productos: Product[] = [];
   public categorias: Categorie[] = [];
   public productImage: ProductImage = new ProductImage(null,'','0');
@@ -34,7 +33,6 @@ export class ProductoAddComponent implements OnInit {
    }
   
   ngOnInit() {
-    this._productoService.getProducts().subscribe(p => this.productos = p.data);
     this._productoService.getCategories().subscribe(p => this.categorias = p.data);
   }
 

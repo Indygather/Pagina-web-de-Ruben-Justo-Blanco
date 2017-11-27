@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
+import { Filters } from '../../models/Filters';
 import { AuthenticationService } from '../../auth/authentication.service';
 
 @Component({
@@ -11,11 +12,14 @@ import { AuthenticationService } from '../../auth/authentication.service';
 })
 export class ProductosListComponent implements OnInit {
   public productos: Product[];
+  public userFilters: Filters;
   loading = true;
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
   constructor(private _productoService: ProductService,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService) {
+      this.userFilters = JSON.parse(localStorage.getItem('userFilters'));
+    }
 
   ngOnInit() {
     this.getProductsList();

@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css']
 })
-export class CvComponent {
+export class CvComponent implements OnInit {
 
-  constructor() { 
+  constructor() {
   }
   goTo(location: string): void {
     const element = document.querySelector("#" + location);
     if (element) { element.scrollIntoView(); }
+  }
+
+  ngOnInit() {
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userFilters');
   }
 
 }

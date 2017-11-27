@@ -36,6 +36,7 @@ nav {
     transition: all .8s ease;
     background: #e42d40;
     border-radius: 10px;
+    padding: 0.3rem;
 }
 
 nav .fa {
@@ -45,6 +46,11 @@ nav .fa {
 .nav-link {
     margin-left: 1rem;
     color: #f0ddaa;
+}
+
+.nav-link:hover {
+    transition: all .8s ease;
+    color: black;
 }
 
 .labelLogin {

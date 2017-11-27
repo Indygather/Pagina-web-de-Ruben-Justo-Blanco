@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
     public token: string;
  
-    //url = 'http://rubenjustoblanco.com/martket-backend/v1/index.php/';
-    url = 'http://localhost/martket-backend/v1/index.php/';
+    url = 'https://rubenjustoblanco.com/martket-backend/v1/index.php/';
+    //url = 'http://localhost/martket-backend/v1/index.php/';
 
     constructor(private http: Http) {
         // set token if saved in local storage
