@@ -141,13 +141,14 @@ nav .fa {
     right: 1rem;
     font-size: 3rem;
     z-index: 99999;
-    color: #e42d40;
+    color: #e42d40 !important;
     margin-right: auto;
     transition: all .5s ease;
 }
 
 .ir-arriba .fa-arrow-circle-up:hover {
     color: #5ebdb2;
+    transition: all .5s ease;
 }
 
 .educacion {

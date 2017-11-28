@@ -11,7 +11,7 @@ export class CvComponent implements OnInit {
   }
   goTo(location: string): void {
     const element = document.querySelector("#" + location);
-    if (element) { element.scrollIntoView(); }
+    if (element) { element.scrollIntoView({block: "start", behavior: "smooth"}); }
   }
 
   ngOnInit() {
