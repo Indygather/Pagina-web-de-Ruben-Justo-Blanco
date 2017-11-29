@@ -48,11 +48,6 @@ nav .fa {
     color: #f0ddaa;
 }
 
-.nav-link:hover {
-    transition: all .8s ease;
-    color: black;
-}
-
 .labelLogin {
     color: #fff;
     margin: 0.5rem 0 0.5rem 0;

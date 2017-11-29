@@ -48,6 +48,7 @@ export class AuthenticationService {
         // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('userFilters');
     }
 
     register(user: User) {

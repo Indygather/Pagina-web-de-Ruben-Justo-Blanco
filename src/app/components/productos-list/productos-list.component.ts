@@ -18,7 +18,6 @@ export class ProductosListComponent implements OnInit {
 
   constructor(private _productoService: ProductService,
     private authenticationService: AuthenticationService) {
-      this.userFilters = JSON.parse(localStorage.getItem('userFilters'));
     }
 
   ngOnInit() {
@@ -29,12 +28,11 @@ export class ProductosListComponent implements OnInit {
     this._productoService.getProducts().subscribe(
       result => {
         this.loading = false;
-          this.productos = result.data;
+        this.productos = result.data;
       },
       error => {
         console.log(<any>error);
       }
     );
   }
-
 }

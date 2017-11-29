@@ -1,24 +1,10 @@
-<app-menu></app-menu>
 <h3 class="margen-sup">
-    Listado de productos
+    Resultados
 </h3>
-
-<nav class="navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFilters" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars" aria-hidden="true"></i><span>Filtrar productos (En construcción...)</span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarFilters">
-        <app-filters-section></app-filters-section>
-    </div>
-</nav>
-
 <div *ngIf="loading" class="loading">
     <i class="fa fa-spinner fa-pulse fa-fw"></i>
     <span class="sr-only">Loading...</span>
 </div>
-
-
 <div *ngIf="!loading" class="row">
     <li *ngFor="let producto of productos" class="col-lg-4">
         <div *ngIf="productos" class="card">

@@ -1,22 +1,15 @@
 <form #formFilters="ngForm" (ngSubmit)="onSubmit();" class="col-12">
-    <label>Nombre</label><span *ngIf="nombre.touched && !nombre.valid" class="badge badge-danger">El campo es obligatorio</span>
-    <input id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="userFilters.NAME" class="form-control" maxlength="100" required/>
+    <label>Buscar</label>
+    <input id="buscar" type="text" name="buscar" #buscar="ngModel" [(ngModel)]="userFilters.BUSCAR" class="form-control" maxlength="100" />
 
-    <label>Descripción</label><span *ngIf="description.touched && !description.valid" class="badge badge-danger">El campo es obligatorio</span>
-    <textarea class="form-control" name="description" #description="ngModel" [(ngModel)]="userFilters.DESCRIPTION" required></textarea>
+    <label>Precio desde</label>
+    <input type="number" class="form-control" name="precioDesde" #precioDesde="ngModel" [(ngModel)]="userFilters.PRICE_MIN" pattern="[0-9]+([\,,\.][0-9][0-9]?)?" />
 
-    <label>Precio desde</label><span *ngIf="precioDesde.touched && !precioDesde.valid" class="badge badge-danger">El campo precio desde no es correcto</span>
-    <input type="number" class="form-control" name="precioDesde" #precioDesde="ngModel" [(ngModel)]="userFilters.PRICE_MIN" required pattern="[0-9]+([\,,\.][0-9][0-9]?)?" />
+    <label>Precio hasta</label>
+    <input type="number" class="form-control" name="precioHasta" #precioHasta="ngModel" [(ngModel)]="userFilters.PRICE_MAX" pattern="[0-9]+([\,,\.][0-9][0-9]?)?" />
 
-    <label>Precio hasta</label><span *ngIf="precioHasta.touched && !precioHasta.valid" class="badge badge-danger">El campo precio hasta no es correcto</span>
-    <input type="number" class="form-control" name="precioHasta" #precioHasta="ngModel" [(ngModel)]="userFilters.PRICE_MAX" required pattern="[0-9]+([\,,\.][0-9][0-9]?)?" />
-
-    <label>Categoría</label><span *ngIf="categoria.touched && !categoria.valid" class="badge badge-danger">El campo categoria es obligatorio</span>
+    <label>Categoría</label>
     <select class="form-control" name="categoria" #categoria="ngModel" [(ngModel)]="userFilters.ID_PRODUCT_CATEGORY">
-            <option *ngFor="let categoria of categorias" value={{categoria.ID_PRODUCT_CATEGORY}}>{{categoria.NAME}}</option>
+        <option *ngFor="let categoria of categorias" value={{categoria.ID_PRODUCT_CATEGORY}}>{{categoria.NAME}}</option>
     </select>
-
-    <div class="my-3">
-        <button type="submit" class="btn btn-success btn-sm" [disabled]="!formFilters.form.valid">Buscar</button>
-    </div>
 </form>

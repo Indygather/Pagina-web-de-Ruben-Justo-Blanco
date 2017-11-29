@@ -16,9 +16,16 @@ export class ProductService {
         private http: Http,
         private authenticationService: AuthenticationService) {
     }
- 
+        
     getProducts() {
-        return this.http.get(this.url+'products')
+        let userFilters = JSON.parse(localStorage.getItem('userFilters'));
+        let json = JSON.stringify(userFilters);
+        let headers = new Headers({
+          'Filters': json
+      });
+    
+      let options = new RequestOptions({ headers: headers });
+        return this.http.get(this.url+'products', options)
             .map((response: Response) => response.json());
     }
     getCategories() {

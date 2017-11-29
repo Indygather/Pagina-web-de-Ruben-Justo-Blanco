@@ -30,6 +30,7 @@ import { UserProductListComponent } from './components/user-productos-list/user-
 import { MenuComponent } from './components/menu/menu.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { FiltersSectionComponent } from './components/filters-section/filters-section.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { FiltersSectionComponent } from './components/filters-section/filters-se
     UserProductListComponent,
     MenuComponent,
     ErrorPageComponent,
-    FiltersSectionComponent
+    FiltersSectionComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
