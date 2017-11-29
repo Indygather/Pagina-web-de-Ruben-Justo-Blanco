@@ -13,6 +13,7 @@ export class UserProductListComponent implements OnInit {
   public productos: Product[];
   loading = true;
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  public show = true;
 
   constructor(private _router: Router,
     private _route: ActivatedRoute,

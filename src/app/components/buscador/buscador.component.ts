@@ -8,8 +8,9 @@ import { ProductosListComponent } from '../productos-list/productos-list.compone
   styleUrls: ['./buscador.component.css']
 })
 export class BuscadorComponent implements OnInit {
-
-  constructor() { }
+public show = true;
+  constructor() { 
+  }
 
   ngOnInit() {
   }

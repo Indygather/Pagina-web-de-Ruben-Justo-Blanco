@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 
 import { CvComponent } from './components/cv/cv.component';
-import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ProductoDetailComponent } from './components/producto-detail/producto-detail.component';

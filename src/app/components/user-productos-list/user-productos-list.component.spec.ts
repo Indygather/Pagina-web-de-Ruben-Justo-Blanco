@@ -1,21 +1,32 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
-import { UserProductosListComponent } from './user-productos-list.component';
+import { UserProductListComponent } from './user-productos-list.component';
+import { MenuComponent } from '../menu/menu.component';
+
+import { AuthenticationService } from '../../auth/authentication.service';
+import { User } from '../../models/user';
 
 describe('UserProductosListComponent', () => {
-  let component: UserProductosListComponent;
-  let fixture: ComponentFixture<UserProductosListComponent>;
+  let component: UserProductListComponent;
+  let fixture: ComponentFixture<UserProductListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserProductosListComponent ]
+      imports: [ HttpModule,RouterTestingModule, FormsModule ],
+      declarations: [ UserProductListComponent,MenuComponent ],
+      providers: [ AuthenticationService ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserProductosListComponent);
+    fixture = TestBed.createComponent(UserProductListComponent);
     component = fixture.componentInstance;
+    component.currentUser = new User(null,null,null,null,null,null,null);
+    component.show = false;
     fixture.detectChanges();
   });
 

@@ -7,14 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ProductoAddComponent } from './producto-add.component';
 
-class RouterStub {
-  navigate(params){
-  }
-}
-
-class ActivatedRouteStub {
-  params: Observable<any> = Observable.empty();
-}
+import { AuthenticationService } from '../../auth/authentication.service';
 
 describe('ProductoAddComponent', () => {
   let component: ProductoAddComponent;
@@ -24,10 +17,7 @@ describe('ProductoAddComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,FormsModule,HttpModule],
       declarations: [ ProductoAddComponent ],
-      providers: [
-        { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useClass: ActivatedRouteStub }
-      ]
+      providers: [AuthenticationService ],
     })
     .compileComponents();
   }));
@@ -35,22 +25,13 @@ describe('ProductoAddComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductoAddComponent);
     component = fixture.componentInstance;
+    component.currentUser = JSON.stringify({ username: 'username', token: 'token', idUser: 'idUser'})
     fixture.detectChanges();
   });
 
   // TEST DE CREACION DEL COMPONENTE
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  // TEST DE NAVEGACION A OTRA PAGINA
-  it('should redirect user to product-list page', () => {
-    let router = TestBed.get(Router);
-    let spy = spyOn(router, 'navigate');
-
-    component.navigateToProductList();
-
-    expect(spy).toHaveBeenCalledWith(['product-list']);
   });
 
 });

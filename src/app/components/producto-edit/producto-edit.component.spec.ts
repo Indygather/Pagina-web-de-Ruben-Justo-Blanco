@@ -7,14 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ProductoEditComponent } from './producto-edit.component';
 
-class RouterStub {
-  navigate(params){
-  }
-}
-
-class ActivatedRouteStub {
-  params: Observable<any> = Observable.empty();
-}
+import { AuthenticationService } from '../../auth/authentication.service';
 
 describe('ProductoEditComponent', () => {
   let component: ProductoEditComponent;
@@ -24,10 +17,7 @@ describe('ProductoEditComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ProductoEditComponent ],
       imports: [RouterTestingModule,FormsModule,HttpModule],
-      providers: [
-        { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useClass: ActivatedRouteStub }
-      ]
+      providers: [ AuthenticationService ]
     })
     .compileComponents();
   }));

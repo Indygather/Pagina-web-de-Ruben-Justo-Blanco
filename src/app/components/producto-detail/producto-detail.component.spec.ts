@@ -4,8 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { ProductoDetailComponent } from './producto-detail.component';
+import { MenuComponent } from '../menu/menu.component';
+
+import { AuthenticationService } from '../../auth/authentication.service';
 
 class RouterStub {
   navigate(params){
@@ -31,12 +35,9 @@ describe('ProductoDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule,HttpModule],
-      declarations: [ ProductoDetailComponent ],
-      providers: [
-        { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useClass: ActivatedRouteStub }
-      ]
+      imports: [RouterTestingModule,HttpModule,FormsModule],
+      declarations: [ ProductoDetailComponent, MenuComponent ],
+      providers: [ AuthenticationService ]
     })
     .compileComponents();
   }));
@@ -49,18 +50,6 @@ describe('ProductoDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should navigate the user to the not found page', () => {
-    let router = TestBed.get(Router);
-    let spy = spyOn(router, 'navigate');
-
-    let route: ActivatedRouteStub = TestBed.get(ActivatedRoute);
-    route.push({id:0});
-
-    component.getDetalleProducto();
-
-    expect(spy).toHaveBeenCalledWith(['product-list']);
   });
 
 });

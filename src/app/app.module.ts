@@ -19,7 +19,6 @@ import { SpanishCurrencyPipe } from './utils/pipe.number.es'
 
 // Componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
 import { CvComponent } from './components/cv/cv.component';
 import { ProductoAddComponent } from './components/producto-add/producto-add.component';
 import { ProductoEditComponent } from './components/producto-edit/producto-edit.component';
@@ -37,7 +36,6 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
   declarations: [
     AppComponent,
     CvComponent,
-    LoginComponent,
     ProductosListComponent,
     ProductoDetailComponent,
     ProductoAddComponent,

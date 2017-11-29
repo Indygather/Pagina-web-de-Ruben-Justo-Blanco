@@ -1,19 +1,21 @@
-<app-menu></app-menu>
-<h3 class="margen-sup">
-    Buscador de productos
-</h3>
+<div *ngIf="show">
+    <app-menu></app-menu>
+    <h3 class="margen-sup">
+        Buscador de productos
+    </h3>
 
-<nav class="navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFilters" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fa fa-bars mx-2" aria-hidden="true"></i><span>Filtrar productos (En construcción...)</span>
-  </button>
+    <nav class="navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFilters" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars mx-2" aria-hidden="true"></i><span>Filtrar productos (En construcción...)</span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarFilters">
-        <app-filters-section #filters></app-filters-section>
-        <div class="my-3">
-            <button (click)="filters.setFilters();products.getProductsList()" class=" btn btn-success btn-sm mx-3 ">Buscar</button>
-            <button (click)="filters.limpiarFiltros() " class="btn btn-warning btn-sm mx-3 ">Limpiar</button>
+        <div class="collapse navbar-collapse" id="navbarFilters">
+            <app-filters-section #filters></app-filters-section>
+            <div class="my-3">
+                <button (click)="filters.setFilters();products.getProductsList()" class=" btn btn-success btn-sm mx-3 ">Buscar</button>
+                <button (click)="filters.limpiarFiltros() " class="btn btn-warning btn-sm mx-3 ">Limpiar</button>
+            </div>
         </div>
-    </div>
-</nav>
-<app-productos-list #products></app-productos-list>
+    </nav>
+    <app-productos-list #products></app-productos-list>
+</div>
