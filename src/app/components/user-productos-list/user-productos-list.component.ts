@@ -6,8 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-user-productos-list',
   templateUrl: './user-productos-list.component.html',
-  styleUrls: ['./user-productos-list.component.css'],
-  providers: [ProductService]
+  styleUrls: ['./user-productos-list.component.css']
 })
 export class UserProductListComponent implements OnInit {
   public productos: Product[];

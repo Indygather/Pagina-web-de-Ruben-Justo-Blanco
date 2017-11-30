@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { CvComponent } from './cv.component';
 
@@ -23,7 +24,13 @@ describe('CvComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create CvComponent', () => {
     expect(component).toBeTruthy();
   });
+
+  it('currentUser and userFilters should be reseted', () => {
+    expect(localStorage.getItem('currentUser')).toBeFalsy();
+    expect(localStorage.getItem('userFilters')).toBeFalsy();
+  });
+
 });

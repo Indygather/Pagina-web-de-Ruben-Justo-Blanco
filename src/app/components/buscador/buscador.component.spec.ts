@@ -30,7 +30,7 @@ describe('BuscadorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create BuscadorComponent', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', async(() => {
+  it('should create the AppComponent', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();

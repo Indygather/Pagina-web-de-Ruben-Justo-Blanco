@@ -7,8 +7,7 @@ import { AuthenticationService } from '../../auth/authentication.service';
 @Component({
   selector: 'app-productos-list',
   templateUrl: './productos-list.component.html',
-  styleUrls: ['./productos-list.component.css'],
-  providers: [ProductService]
+  styleUrls: ['./productos-list.component.css']
 })
 export class ProductosListComponent implements OnInit {
   public productos: Product[];

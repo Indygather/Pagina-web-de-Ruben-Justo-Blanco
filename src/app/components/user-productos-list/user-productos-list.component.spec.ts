@@ -8,6 +8,7 @@ import { MenuComponent } from '../menu/menu.component';
 
 import { AuthenticationService } from '../../auth/authentication.service';
 import { User } from '../../models/user';
+import { ProductService } from '../../services/product.service';
 
 describe('UserProductosListComponent', () => {
   let component: UserProductListComponent;
@@ -17,7 +18,7 @@ describe('UserProductosListComponent', () => {
     TestBed.configureTestingModule({
       imports: [ HttpModule,RouterTestingModule, FormsModule ],
       declarations: [ UserProductListComponent,MenuComponent ],
-      providers: [ AuthenticationService ]
+      providers: [ AuthenticationService, ProductService ]
     })
     .compileComponents();
   }));
@@ -30,7 +31,7 @@ describe('UserProductosListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create UserProductosListComponent', () => {
     expect(component).toBeTruthy();
   });
 });

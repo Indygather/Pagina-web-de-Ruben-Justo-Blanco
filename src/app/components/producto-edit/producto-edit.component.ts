@@ -9,12 +9,12 @@ import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-producto-edit',
   templateUrl: './producto-edit.component.html',
-  providers: [ProductService],
   styleUrls: ['./producto-edit.component.css']
 })
 export class ProductoEditComponent implements OnInit {
   loading = true;
   public titulo = "Edición de producto";
+  public idProducto: number;
   public producto = new Product(0,'','',0,1,'',[]);
   public categorias: Categorie[] = [];
   public productImage: ProductImage = new ProductImage(null,'','0');
@@ -32,9 +32,9 @@ export class ProductoEditComponent implements OnInit {
 
   getDetalleProducto(){
     this._route.params.forEach((params: Params) => {
-      let id = params['id'];
-      if(id != 0){
-        this._productoService.getProductDetail(id).subscribe(
+      this.idProducto = params['id'];
+      if(this.idProducto != 0){
+        this._productoService.getProductDetail(this.idProducto).subscribe(
           response => {
             this.loading = false;
             if(response.code == 200) {
@@ -73,6 +73,9 @@ export class ProductoEditComponent implements OnInit {
   }
 
   addProductImage(){
+    if(this.producto.IMAGES.length == 0){
+      this.imagenPrincipal = true;
+    }
     if(this.imagenPrincipal){
       this.productImage.IMAGEN_PRINCIPAL = '1';
       if (this.producto.IMAGES && this.producto.IMAGES.length > 0) {

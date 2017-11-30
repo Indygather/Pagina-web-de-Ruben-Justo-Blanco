@@ -5,12 +5,12 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
 import { Categorie } from '../../models/Categorie';
 import { ProductImage } from '../../models/productImage';
+import { Response } from '../../models/Response';
 
 @Component({
   selector: 'app-producto-add',
   templateUrl: './producto-add.component.html',
-  styleUrls: ['./producto-add.component.css'],
-  providers: [ProductService]
+  styleUrls: ['./producto-add.component.css']
 })
 export class ProductoAddComponent implements OnInit {
   public titulo:string;
@@ -33,7 +33,9 @@ export class ProductoAddComponent implements OnInit {
    }
   
   ngOnInit() {
-    this._productoService.getCategories().subscribe(p => this.categorias = p.data);
+    this._productoService.getCategories().subscribe(p => {
+      this.categorias = p.data;
+    });
   }
 
   onSubmit(){
@@ -41,7 +43,7 @@ export class ProductoAddComponent implements OnInit {
       response => {
         if(response.code == 200){
           this.productos.push(this.producto);
-          this.navigateUserToProductList();
+          this.navigateToUserProductList();
         }else{
           console.log(response);
         }
@@ -82,7 +84,7 @@ export class ProductoAddComponent implements OnInit {
     }
   }
 
-  navigateUserToProductList(){
+  navigateToUserProductList(){
     this._router.navigate(['products/' + this.currentUser.username]);
   }
 

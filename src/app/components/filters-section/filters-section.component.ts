@@ -7,8 +7,7 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 @Component({
   selector: 'app-filters-section',
   templateUrl: './filters-section.component.html',
-  styleUrls: ['./filters-section.component.css'],
-  providers: [ProductService]
+  styleUrls: ['./filters-section.component.css']
 })
 export class FiltersSectionComponent {
   @Output() cleanFiltersEvent = new EventEmitter();

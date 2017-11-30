@@ -8,7 +8,6 @@ import { Categorie } from '../../models/Categorie';
 @Component({
   selector: 'app-producto-detail',
   templateUrl: './producto-detail.component.html',
-  providers: [ProductService],
   styleUrls: ['./producto-detail.component.css']
 })
 export class ProductoDetailComponent implements OnInit {
@@ -27,9 +26,9 @@ export class ProductoDetailComponent implements OnInit {
 
   getDetalleProducto(){
     this._route.params.forEach((params: Params) => {
-      let id = params['id'];
-      if(id != 0){
-        this._productoService.getProductDetail(id).subscribe(
+      this.idProducto = params['id'];
+      if(this.idProducto != 0){
+        this._productoService.getProductDetail(this.idProducto).subscribe(
           response => {
             this.loading = false;
             if(response.code == 200) {

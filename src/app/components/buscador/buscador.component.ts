@@ -9,7 +9,7 @@ import { ProductosListComponent } from '../productos-list/productos-list.compone
 })
 export class BuscadorComponent implements OnInit {
 public show = true;
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {

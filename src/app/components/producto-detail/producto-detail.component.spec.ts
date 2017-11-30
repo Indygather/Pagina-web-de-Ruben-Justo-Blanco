@@ -10,6 +10,10 @@ import { ProductoDetailComponent } from './producto-detail.component';
 import { MenuComponent } from '../menu/menu.component';
 
 import { AuthenticationService } from '../../auth/authentication.service';
+import { ProductService } from '../../services/product.service';
+import { Categorie } from '../../models/Categorie';
+import { Response } from '../../models/Response';
+import { Product } from '../../models/product';
 
 class RouterStub {
   navigate(params){
@@ -37,7 +41,7 @@ describe('ProductoDetailComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,HttpModule,FormsModule],
       declarations: [ ProductoDetailComponent, MenuComponent ],
-      providers: [ AuthenticationService ]
+      providers: [ AuthenticationService, ProductService ]
     })
     .compileComponents();
   }));
@@ -48,8 +52,30 @@ describe('ProductoDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create ProductoDetailComponent', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should load item categories', () => {
+    let service = TestBed.get(ProductService);
+    let categories: Categorie[] = [];
+    categories.push(new Categorie(1,'categorie 1','desc categorie 1'));
+    categories.push(new Categorie(2,'categorie 2','desc categorie 2'));
+    categories.push(new Categorie(3,'categorie 3','desc categorie 3'));
+    let response = new Response('success',200,categories);
+    spyOn(service, 'getCategories').and.returnValue(Observable.from([response]));
+    component.ngOnInit();
+    expect(component.categorias).toBe(categories);
+  });
+
+  it('should get product details', () => {
+    let service = TestBed.get(ProductService);
+    let product: Product = new Product(0,'product name','product description',0,0,'product image url',[]);
+    let response = new Response('success',200,product);
+    component.idProducto = 0;
+    spyOn(service, 'getProductDetail').and.returnValue(Observable.from([response]));
+    component.ngOnInit();
+    expect(component.producto).toBe(product);
   });
 
 });

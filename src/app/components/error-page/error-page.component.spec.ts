@@ -23,7 +23,7 @@ describe('ErrorPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create ErrorPageComponent', () => {
     expect(component).toBeTruthy();
   });
 });

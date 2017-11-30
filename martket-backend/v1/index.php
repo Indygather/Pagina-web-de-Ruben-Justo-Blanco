@@ -4,11 +4,10 @@ require_once '../vendor/autoload.php';
 
 $app = new \Slim\Slim();
 
-$db = new mysqli('localhost', 'id3376422_rubenjb', '32703802Xx', 'id3376422_marketdb');
 
 // Configuración de cabeceras
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, User, Authorization, Access-Control-Request-Method");
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, User, Authorization, Filters, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 $method = $_SERVER['REQUEST_METHOD'];
@@ -26,7 +25,7 @@ function authenticate(\Slim\Route $route) {
 	// Getting request headers
 	$headers = apache_request_headers();
 	$app = \Slim\Slim::getInstance();
-	$db = new mysqli('localhost', 'id3376422_rubenjb', '32703802Xx', 'id3376422_marketdb');
+	$db = new mysqli('mysql.hostinger.com', 'u494887037_mrtkt', '32703802Xx', 'u494887037_mrtkt');
 
 	// Verifying Authorization Header
 	if (isset($headers['Authorization']) && isset($headers['User'])) {
@@ -277,9 +276,55 @@ $app->get('/categories', function() use($db, $app){
 	mysqli_close($db);
 });
 
-// LISTAR TODOS LOS PRODUCTOS CON SU IMAGEN PRINCIPAL (SI LA TIENEN)
+// LISTAR LOS PRODUCTOS FILTRADOS CON SU IMAGEN PRINCIPAL (SI LA TIENEN)
 $app->get('/products', function() use($db, $app){
-	$sql = 'SELECT `PRODUCTS`.`ID_PRODUCT`, `ID_USER`, `NAME`, `DESCRIPTION`, `PRICE`, `PRODUCTS`.`CREATION_DATE`, `PRODUCTS`.`UPDATE_DATE`, `PRODUCTS`.`ENABLE`, `ID_PRODUCT_CATEGORY`, `ID_IMAGE`,`URL_IMAGE`,`URL_IMAGE` FROM PRODUCTS LEFT JOIN PRODUCT_IMAGES ON PRODUCTS.ID_PRODUCT=PRODUCT_IMAGES.ID_PRODUCT AND (PRODUCT_IMAGES.IMAGEN_PRINCIPAL=1 OR PRODUCT_IMAGES.ID_PRODUCT = null) ORDER BY PRODUCTS.ID_PRODUCT DESC;';
+	// En primer lugar se obtienen los filtros de la cabecera http
+	$headers = apache_request_headers();
+	$headerFilters = $headers['Filters'];
+	$jsonFilters = json_decode($headerFilters, true);
+	// Se construlle el where en base a los filtros establecidos
+	$whereSection = 'WHERE';
+	$hasFilters = false;
+	if(isset($jsonFilters['BUSCAR']) && $jsonFilters['BUSCAR'] !== ''){
+		if($hasFilters){
+			$whereSection = $whereSection.' AND ';
+		} else {
+			$hasFilters = true;
+		}
+		$whereSection = $whereSection.' NAME like \'%'.$jsonFilters['BUSCAR'].'%\' OR DESCRIPTION like \'%'.$jsonFilters['BUSCAR'].'%\'';
+	}
+	
+	if(isset($jsonFilters['PRICE_MIN'])){
+		if($hasFilters){
+			$whereSection = $whereSection.' AND ';
+		} else {
+			$hasFilters = true;
+		}
+		$whereSection = $whereSection.' PRICE >= '.$jsonFilters['PRICE_MIN'];
+	}
+	
+	if(isset($jsonFilters['PRICE_MAX'])){
+		if($hasFilters){
+			$whereSection = $whereSection.' AND ';
+		} else {
+			$hasFilters = true;
+		}
+		$whereSection = $whereSection.' PRICE <= '.$jsonFilters['PRICE_MAX'];
+	}
+	
+	if(isset($jsonFilters['ID_PRODUCT_CATEGORY']) && $jsonFilters['ID_PRODUCT_CATEGORY'] > 0){
+		if($hasFilters){
+			$whereSection = $whereSection.' AND ';
+		} else {
+			$hasFilters = true;
+		}
+		$whereSection = $whereSection.' ID_PRODUCT_CATEGORY = '.$jsonFilters['ID_PRODUCT_CATEGORY'];
+	}
+	$sql = 'SELECT `PRODUCTS`.`ID_PRODUCT`, `ID_USER`, `NAME`, `DESCRIPTION`, `PRICE`, `PRODUCTS`.`CREATION_DATE`, `PRODUCTS`.`UPDATE_DATE`, `PRODUCTS`.`ENABLE`, `ID_PRODUCT_CATEGORY`, `ID_IMAGE`,`URL_IMAGE`,`URL_IMAGE` FROM PRODUCTS LEFT JOIN PRODUCT_IMAGES ON PRODUCTS.ID_PRODUCT=PRODUCT_IMAGES.ID_PRODUCT AND (PRODUCT_IMAGES.IMAGEN_PRINCIPAL=1 OR PRODUCT_IMAGES.ID_PRODUCT = null) ';
+	if($hasFilters){
+		$sql = $sql.$whereSection;
+	}
+	$sql = $sql.' ORDER BY PRODUCTS.ID_PRODUCT DESC;';
 	$query = $db->query($sql);
 
 	$productos = array();

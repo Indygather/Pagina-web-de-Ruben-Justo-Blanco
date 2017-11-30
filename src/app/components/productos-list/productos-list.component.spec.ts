@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductosListComponent } from './productos-list.component';
 
 import { AuthenticationService } from '../../auth/authentication.service';
+import { ProductService } from '../../services/product.service';
 
 class RouterStub {
   navigate(params){
@@ -36,7 +37,7 @@ describe('ProductosListComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,HttpModule,FormsModule],
       declarations: [ ProductosListComponent ],
-      providers: [ AuthenticationService ]
+      providers: [ AuthenticationService, ProductService ]
     })
     .compileComponents();
   }));
@@ -47,7 +48,7 @@ describe('ProductosListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create ProductosListComponent', () => {
     expect(component).toBeTruthy();
   });
 
