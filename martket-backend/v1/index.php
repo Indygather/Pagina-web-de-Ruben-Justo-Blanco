@@ -4,6 +4,7 @@ require_once '../vendor/autoload.php';
 
 $app = new \Slim\Slim();
 
+$db = new mysqli('mysql.hostinger.com', 'u494887037_mrtkt', '32703802Xx', 'u494887037_mrtkt');
 
 // Configuración de cabeceras
 header('Access-Control-Allow-Origin: *');
